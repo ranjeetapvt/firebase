@@ -1,0 +1,216 @@
+export type Json = string | number | boolean | null | { [key: string]: Json | undefined } | Json[]
+
+export interface Database {
+  public: {
+    Tables: {
+      users: {
+        Row: {
+          id: string
+          email: string
+          full_name: string | null
+          avatar_url: string | null
+          created_at: string
+          updated_at: string
+          itinerary_count: number
+        }
+        Insert: {
+          id: string
+          email: string
+          full_name?: string | null
+          avatar_url?: string | null
+          created_at?: string
+          updated_at?: string
+          itinerary_count?: number
+        }
+        Update: {
+          id?: string
+          email?: string
+          full_name?: string | null
+          avatar_url?: string | null
+          created_at?: string
+          updated_at?: string
+          itinerary_count?: number
+        }
+      }
+      itineraries: {
+        Row: {
+          id: string
+          user_id: string
+          destination: string
+          start_date: string
+          end_date: string
+          created_at: string
+          updated_at: string
+          budget_type: "Cheap" | "Moderate" | "Luxury" | null
+          travel_group_type: string
+          travelers_count: number
+          arrival_mode: string
+          departure_mode: string | null
+          arrival_time: string | null
+          departure_time: string | null
+          content: Json
+          initial_prompt: string | null
+          trip_styles: string[] | null
+          pace: "Light" | "Balanced" | "Full" | null
+          wake_up_time: "Early" | "Mid" | "Late" | null
+          cuisine_preferences: string[] | null
+        }
+        Insert: {
+          id?: string
+          user_id: string
+          destination: string
+          start_date: string
+          end_date: string
+          created_at?: string
+          updated_at?: string
+          budget_type?: "Cheap" | "Moderate" | "Luxury" | null
+          travel_group_type: string
+          travelers_count: number
+          arrival_mode: string
+          departure_mode?: string | null
+          arrival_time?: string | null
+          departure_time?: string | null
+          content: Json
+          initial_prompt?: string | null
+          trip_styles?: string[] | null
+          pace?: "Light" | "Balanced" | "Full" | null
+          wake_up_time?: "Early" | "Mid" | "Late" | null
+          cuisine_preferences?: string[] | null
+        }
+        Update: {
+          id?: string
+          user_id?: string
+          destination?: string
+          start_date?: string
+          end_date?: string
+          created_at?: string
+          updated_at?: string
+          budget_type?: "Cheap" | "Moderate" | "Luxury" | null
+          travel_group_type?: string
+          travelers_count?: number
+          arrival_mode?: string
+          departure_mode?: string | null
+          arrival_time?: string | null
+          departure_time?: string | null
+          content?: Json
+          initial_prompt?: string | null
+          trip_styles?: string[] | null
+          pace?: "Light" | "Balanced" | "Full" | null
+          wake_up_time?: "Early" | "Mid" | "Late" | null
+          cuisine_preferences?: string[] | null
+        }
+      }
+      activities: {
+        Row: {
+          id: string
+          itinerary_id: string
+          day_number: number
+          title: string
+          description: string | null
+          location: string | null
+          latitude: number | null
+          longitude: number | null
+          start_time: string | null
+          end_time: string | null
+          activity_type: string | null
+          image_url: string | null
+        }
+        Insert: {
+          id?: string
+          itinerary_id: string
+          day_number: number
+          title: string
+          description?: string | null
+          location?: string | null
+          latitude?: number | null
+          longitude?: number | null
+          start_time?: string | null
+          end_time?: string | null
+          activity_type?: string | null
+          image_url?: string | null
+        }
+        Update: {
+          id?: string
+          itinerary_id?: string
+          day_number?: number
+          title?: string
+          description?: string | null
+          location?: string | null
+          latitude?: number | null
+          longitude?: number | null
+          start_time?: string | null
+          end_time?: string | null
+          activity_type?: string | null
+          image_url?: string | null
+        }
+      }
+      accommodations: {
+        Row: {
+          id: string
+          itinerary_id: string
+          name: string
+          address: string | null
+          latitude: number | null
+          longitude: number | null
+          price_range: string | null
+          type: string | null
+          rating: number | null
+          amenities: string[] | null
+          image_url: string | null
+          google_maps_url: string | null
+        }
+        Insert: {
+          id?: string
+          itinerary_id: string
+          name: string
+          address?: string | null
+          latitude?: number | null
+          longitude?: number | null
+          price_range?: string | null
+          type?: string | null
+          rating?: number | null
+          amenities?: string[] | null
+          image_url?: string | null
+          google_maps_url?: string | null
+        }
+        Update: {
+          id?: string
+          itinerary_id?: string
+          name?: string
+          address?: string | null
+          latitude?: number | null
+          longitude?: number | null
+          price_range?: string | null
+          type?: string | null
+          rating?: number | null
+          amenities?: string[] | null
+          image_url?: string | null
+          google_maps_url?: string | null
+        }
+      }
+      tips: {
+        Row: {
+          id: string
+          itinerary_id: string
+          category: string
+          title: string
+          content: string
+        }
+        Insert: {
+          id?: string
+          itinerary_id: string
+          category: string
+          title: string
+          content: string
+        }
+        Update: {
+          id?: string
+          itinerary_id?: string
+          category?: string
+          title?: string
+          content?: string
+        }
+      }
+    }
+  }
+}
